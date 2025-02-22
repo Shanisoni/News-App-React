@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- "scripts": {
-  "start": "node index.js",
-  "build": "cd ../client && npm install && npm run build && cd ../server && npm install"
-},
-
+  "scripts": {
+    "start": "node index.js",
+    "build": "cd ../client && npm install && npm run build && cd ../server && npm install"
+  },
   "keywords": [],
   "author": "Nishchal Sachan",
   "license": "ISC",
