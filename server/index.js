@@ -3,14 +3,14 @@ const generateNews = require("./generateNews");
 const cors = require("cors");
 const path = require("path");
 
-
 const app = express();
-const port = 3000;
+
+// Use Render's port or default to 3000 for local development
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
-
 
 // Serve frontend in production
 if (process.env.NODE_ENV === "production") {
@@ -20,12 +20,14 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "../client/dist", "index.html"));
   });
 }
+
 app.get("/", (req, res) => {
   res.send({
     message: "Hello World",
   });
 });
 
+// API route for fetching news
 app.get("/api/news", async (req, res) => {
   try {
     const news = await generateNews();
@@ -36,6 +38,7 @@ app.get("/api/news", async (req, res) => {
   }
 });
 
+// Listen on the correct port
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
