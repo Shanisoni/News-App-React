@@ -27,6 +27,7 @@ app.get("/", (req, res) => {
   });
 });
 
+
 // API route for fetching news
 app.get("/api/news", async (req, res) => {
   try {
@@ -37,6 +38,7 @@ app.get("/api/news", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch news" });
   }
 });
+
 
 // Listen on the correct port
 app.listen(port, () => {
