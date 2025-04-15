@@ -12,6 +12,8 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredNewsItems, setFilteredNewsItems] = useState([]);
 
+
+  
   const fetchNews = useCallback(async () => {
     try {
       const response = await axios.get(`${API_BASE_URL}/api/news`);
